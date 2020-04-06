@@ -18,3 +18,20 @@ var groupAnagrams = function(strs) {
     return Array.from(sortedWords.values());
 
 };
+
+// Improvements
+var groupAnagrams2 = function(strs) {
+    let sortedWords = {};
+    for (let str of strs) {
+        let currentCheck = str.split('').sort().join('');
+
+        if (sortedWords[currentCheck] == null){
+            sortedWords[currentCheck] = [str];
+        }
+        else {
+            sortedWords[currentCheck].push(str);
+        }
+    }
+
+    return Object.values(sortedWords);
+};
