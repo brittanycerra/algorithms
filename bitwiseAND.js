@@ -1,4 +1,5 @@
-// Inclusive range of m to n where m <= n
+// Given a range [m, n] where 0 <= m <= n <= 2147483647, return the bitwise AND of all numbers in this range, inclusive.
+
 var rangeBitwiseAnd = function(m, n) {
     // Keep track of offset so that we can shift back later
     let offset = 0;
