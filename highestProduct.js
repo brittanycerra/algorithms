@@ -16,24 +16,23 @@ function highestProductOf3(arrayOfInts) {
   return Math.max(topThree, bottomThree);
   */
   
-  
   // Calculate the highest product of three numbers
   let first = arrayOfInts[0];
   let second = arrayOfInts[0];
   let third = arrayOfInts[0];
-  let lowest = 0;
   let secondLowest = 0;
+  let lowest = 0;
   
   for(let i = 0; i < arrayOfInts.length; i++){
     let current = arrayOfInts[i];
     
     // Find lowest & second to lowest numbers if less than zero
     if (current < 0 ) {
-    	if(current < lowest) {
+    	if(current <= lowest) {
       	secondLowest = lowest;
         lowest = current;
-      } else if(current === lowest){
-        secondLowest = lowest;
+      } else if(current < secondLowest ){
+        secondLowest = current;
       }
     }
     
@@ -59,16 +58,5 @@ function highestProductOf3(arrayOfInts) {
     
   }
   
-  let theProduct = first * second * third;
-  
-  if(lowest < 0 && secondLowest < 0){
-    let otherProduct = lowest * secondLowest * first;
-    
-    theProduct = Math.max(otherProduct, theProduct);
-    
-    
-  }
-  
-  return theProduct;
-  
+  return Math.max(first * second * third, first * lowest * secondLowest);
 }
